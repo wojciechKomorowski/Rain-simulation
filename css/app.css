@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+#canvas {
+    background: rgba(206, 198, 248, 0.637);
+}

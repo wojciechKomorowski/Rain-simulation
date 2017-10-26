@@ -136,11 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Restart cycle (inifinity)
                 if (this.y > innerHeight) {
-                    this.y = randomIntFromRange(-100, -300);
+                    this.y = randomIntFromRange(-100, -500);
                 }
                 // Larger raindrops are faster 
-                if (this.width >= 3 && this.height >= 11) {
-                    this.dy = randomIntFromRange(11, 15);
+                if (this.width >= 3 && this.height >= 10) {
+                    this.dy = randomIntFromRange(11, 14);
                 }
 
                 this.y += this.dy;
@@ -165,9 +165,17 @@ document.addEventListener('DOMContentLoaded', function () {
             var dy = randomIntFromRange(6, 10);
             var width = randomIntFromRange(2, 4);
             var height = randomIntFromRange(10, 14);
+            // Alternative raidrop size to create more raindrops in background
+            var widthBg = 2;
+            var heightBg = 10;
             var color = 'rgb(139, 85, 139)';
-
-            rainArray.push(new Rectangle(x, y, dy, width, height, color));
+            var halfDropsNumber = dropsNumber / 2;
+            // Creating more raindrops on the background (realistic effect)
+            if (i < halfDropsNumber) {
+                rainArray.push(new Rectangle(x, y, dy, width, height, color));
+            } else {
+                rainArray.push(new Rectangle(x, y, dy, widthBg, heightBg, color));
+            }
         }
     }
 
